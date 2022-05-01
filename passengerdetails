@@ -1,0 +1,25 @@
+package applications;
+
+public class passenger {
+		String p_name;
+		int p_id;
+		String train_number="Madurai Express-888";
+		int allot_seat;
+		String allot_berth;
+		passenger(String name,int id,int seat,String berth){
+			p_name=name;
+			p_id=id;
+			allot_seat=seat;
+			allot_berth=berth;
+		}
+		
+		void printticket() {
+			System.out.println("*----------------------------------------------------*");
+			System.out.println("Passenger Name: "+p_name);
+			System.out.println("Passenger id: "+p_id);
+			System.out.println("Train Name: "+train_number);
+			System.out.println("Passenger's alloted seat: "+allot_seat);
+			System.out.println("Passenger's allotted berth: "+allot_berth);
+			System.out.println("*----------------------------------------------------*");
+		}
+}
