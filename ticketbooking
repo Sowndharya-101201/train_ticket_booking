@@ -1,0 +1,112 @@
+package applications;
+import java.util.*;
+public class trainticketbooking {
+	static int size1=0,size2=0,size3=0,size=12,a1=101,b1=201,c1=301,res_berth_seat=0,p_id=1,a=0,b=0,c=0;
+	
+	static String berth;
+    public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Welcome to SOUTHERN RAILWAYS!");
+    	System.out.println("Have a safe journey!");
+    	
+    	boolean loop=true;
+    	while(loop) {
+    		System.out.println("1--> Checking for Lower berth availablity"+'\n'+"2--> Checking for Middle berth availablity"+'\n'+"3--> Checking for Upper berth availablity"+'\n'+"4--> Print train ticket"+'\n'+"5--> Exit");
+    		int choice=sc.nextInt();
+    		switch(choice) {
+    		case 1:  if(size1<12) {
+    			    berth="Lower berth";
+    			    a=1;
+    			    b=0;
+    			    c=0;
+    			    System.out.println("Lower berth is available");
+    				}
+    			else {
+    				System.out.println("Lower berth is not available");
+    				System.out.println("prefering to took middle or upper berth");
+    				System.out.println("1--> Middle berth"+'\n'+"2--> Upper berth");
+    				int c=sc.nextInt();
+    				if(c==1 && size2<12) {
+    					berth="Middle berth";
+    					a=0;
+        			    b=1;
+        			    c=0;
+        			    System.out.println("Middle berth is available");
+        			  }
+    				else if(c==0 && size3<12) {
+    					berth="Upper berth";
+    					a=0;
+        			    b=0;
+        			    c=1;
+    					System.out.println("Upper berth is available");
+    				}
+    				else {
+    					System.out.println("No berth is available");
+    				}
+    			}
+    			break;
+    		case 2:if(size2<12) {
+    			berth="Middle berth";
+    				a=0;
+    				b=1;
+    				c=0;
+			    	System.out.println("Middle berth is available");
+					}
+    			else if(size3<12) {
+    				berth="Upper berth";
+    				a=0;
+    			    b=0;
+    			    c=1;
+					System.out.println("Upper berth is available");
+    			}
+    			else {
+    				System.out.println("No berth is available");
+    			}
+    			break;
+    		case 3:if(size3<12) {
+    			berth="Upper berth";
+    			a=0;
+			    b=0;
+			    c=1;
+				System.out.println("Upper berth is available");
+		    	}
+    			else {
+    				System.out.println("No berth is available");
+    			}
+    			break;
+    		case 4:
+    			if(p_id<=120) {
+    				System.out.println("*****Welcome to SOUTHERN CENTRAL RAILWAYS!*****");
+    		        System.out.println("Enter your name: ");
+    		        sc.nextLine();
+    		        String name=sc.nextLine();
+    		        if(a==1) {
+    		        	res_berth_seat=a1;
+    		        	a1++;
+    		        }
+    		        else if(b==1) {
+    		        	res_berth_seat=b1;
+    		        	b1++;
+    		        }
+    		        else if(c==1) {
+    		        	res_berth_seat=c1;
+    		        	c1++;
+    		        }
+    		        passenger p=new passenger(name,p_id++,res_berth_seat,berth);
+    		    	p.printticket();
+    			}
+    			else {
+    				System.out.println("No berth is available right now!");
+    			}
+    		    	break;
+    			
+    		case 5: 
+    			System.out.println("Thank you!");
+    			loop=false;
+    		}
+    	}
+    	sc.close();
+    	
+    }
+     
+}
